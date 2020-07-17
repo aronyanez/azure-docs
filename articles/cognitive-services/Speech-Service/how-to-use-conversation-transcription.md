@@ -129,7 +129,7 @@ public class MyConversationTranscriber
 
         // Create an audio stream from a wav file or from the default microphone if you want to stream live audio from the supported devices
         // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback
-        using (var audioInput = Helper.OpenWavFile(@"8channelsOfRecordedPCMAudio.wav"))
+        using (var audioInput = AudioConfig.FromWavFileInput(@"8channelsOfRecordedPCMAudio.wav"))
         {
             var meetingId = Guid.NewGuid().ToString();
             using (var conversation = await Conversation.CreateConversationAsync(config, meetingId).ConfigureAwait(false))
